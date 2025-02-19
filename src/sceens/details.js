@@ -15,10 +15,12 @@ const Details = ({ route, navigation }) => {
         // If an error occurs while clearing data, the user is still redirected to Login.
         try {
             await AsyncStorage.clear();
-            console.log("xxx");
-            navigation.navigate('Login');
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'Login' }],
+            });
         } catch {
-            navigation.navigate('Login');
+            navigation.replace('Login');
         }
     }
 
