@@ -191,6 +191,14 @@ To install it, run:
 npm install @react-native-async-storage/async-storage
 ```
 
+---  
+
+## 📌 Install Library to use pexels api for images (if you want) 
+
+```sh
+npm install pexels --save
+```
+
 ---
 
 # 🚀 How to Run the App
