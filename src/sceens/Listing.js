@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     loaderContainer: {
-        transform: [{ scale: 2.2 }],
+        transform: [{ scale: 1.8 }],
         justifyContent: 'center',
         alignItems: 'center'
     },
