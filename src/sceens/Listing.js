@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, Image, ActivityIndicator, RefreshControl, Alert } from "react-native";
 import { createClient } from "pexels";
 import Logout from "react-native-vector-icons/AntDesign";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const windowHight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -49,9 +50,9 @@ const Listing = ({ navigation }) => {
         // If an error occurs while clearing data, the user is still redirected to Login.
         try {
             await AsyncStorage.clear();
-            navigation.navigate('Login');
+            navigation.replace('Login');
         } catch {
-            navigation.navigate('Login');
+            navigation.replace('Login');
         }
     }
 
