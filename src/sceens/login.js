@@ -22,25 +22,17 @@ const Login = ({ navigation }) => {
 
     const storeSession = async () => {
         try {
-            // Stores the user session by saving the email-password pair in AsyncStorage.
-            // Ensures only one session exists by clearing previous stored data before saving new credentials.
-            // After storing the session, the user is navigated to the Listing screen.
             console.log("StoreSession");
             await AsyncStorage.clear();
-            await AsyncStorage.setItem(String(email), String(password));
+            await AsyncStorage.setItem("userLoggedIn", "true");
             navigation.replace('Listing');
         } catch (error) {
-            // In case of an error, still navigate the user to the Listing screen.
             navigation.replace('Listing');
         }
-        setLoading(false); // Stops loading indicator.
+        setLoading(false);
     }
 
     const loginUser = () => {
-        // Handles user authentication when the login button is pressed.
-        // Uses Firebase Authentication to verify the entered email and password.
-        // If successful, the user is signed in, and the session is stored.
-        // If authentication fails, appropriate error messages are displayed.
         setLoading(true);
         auth()
             .signInWithEmailAndPassword(email, password)
@@ -49,7 +41,6 @@ const Login = ({ navigation }) => {
                 storeSession(); // Stores the session for persistence.
             })
             .catch(error => {
-                // Handles different types of authentication errors and displays relevant messages.
                 setLoading(false);
                 if (error.code === "auth/invalid-credential") {
                     Alert.alert("Invalid email or password!");

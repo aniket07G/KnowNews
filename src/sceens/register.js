@@ -21,10 +21,6 @@ const Register = ({ navigation }) => {
     }, [email, password, conformpassword])
 
     const registerUser = () => {
-        // Handles user registration using Firebase Authentication.
-        // Ensures the entered password and confirm password match before proceeding.
-        // If registration is successful, the user is redirected to the Login screen.
-        // If an error occurs, appropriate messages are displayed based on the error type.
         setLoading(true);
         if (password === conformpassword) {
             auth()
@@ -35,7 +31,6 @@ const Register = ({ navigation }) => {
                     setLoading(false);
                 })
                 .catch(error => {
-                    // Handle different types of authentication errors.
                     setLoading(false);
                     if (error.code === 'auth/email-already-in-use') {
                         console.log('That email address is already in use!');
@@ -53,7 +48,6 @@ const Register = ({ navigation }) => {
                     }
                 });
         } else {
-            // If passwords do not match, show an error message.
             setLoading(false);
             setRetypepassword(true);
         }

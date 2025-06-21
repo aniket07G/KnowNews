@@ -9,33 +9,25 @@ const Splash = ({ navigation }) => {
     useEffect(() => {
         const retrieveEmailPass = async () => {
             try {
-                // This function handles persistent login by checking if a stored email-password pair exists in AsyncStorage.
-                // If a valid key (email) is found, the user is navigated to the Listing screen without requiring login again.
-                // Otherwise, the user is redirected to the Login screen.
-                const keys = await AsyncStorage.getAllKeys();
-                if (keys.length === 1) {
-                    const password = await AsyncStorage.getItem(keys[0]);
-                    console.log("Retrieved Password:", password);
+                const isLoggedIn = await AsyncStorage.getItem("userLoggedIn");
+                if (isLoggedIn) {
                     navigation.replace("Listing");
                 } else {
                     navigation.replace("Login");
                 }
             } catch (error) {
-                // If any error occurs, the user is redirected to the Login screen as a fallback.
                 console.error("Error retrieving data:", error);
                 navigation.replace('Login')
             }
         };
-        // Introduces a slight delay before checking for stored credentials,
-        // useful for displaying a splash screen or smooth transition.
         setTimeout(() => {
             retrieveEmailPass();
         }, 2000)
     }, [])
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={styles.textmai}>Mai</Text>
-            <Text style={styles.textkisan}>Kisan</Text>
+            <Text style={styles.textmai}>Know</Text>
+            <Text style={styles.textkisan}>News</Text>
         </View>
     )
 }

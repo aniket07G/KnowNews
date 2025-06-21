@@ -193,11 +193,26 @@ npm install @react-native-async-storage/async-storage
 
 ---  
 
-## 📌 Install Library to use pexels api for images (if you want) 
+## 📌 Install Axios
+Axios is used to make HTTP requests to external APIs.
+
+To install it, run:
 
 ```sh
-npm install pexels --save
+npm install axios
 ```
+--- 
+## 📌 Install netinfo
+Used to detect network connectivity and handle offline functionality.
+
+To install it, run:
+
+```sh
+npm install @react-native-community/netinfo
+
+```
+
+
 
 ---
 
@@ -208,7 +223,7 @@ Follow these steps to run the MyKisan React Native app on your device or emulato
 Navigate to the project folder and start the Metro bundler:
 
 ```sh
-cd MyKisan
+cd projectname
 npm start
 ```
 
@@ -245,72 +260,3 @@ adb devices
 ---
 
 ✅ **App is Now Running!** 🎉  
-✅ **Now your React Native project is fully set up with Firebase, navigation, icons, and persistent storage!** 🚀  
-
----
-
-
-# 🏗 A brief explanation of the app structure and standout points.
-
-## 📂 Screens (Main Features)
-
-### 1️⃣ Splash Screen (Splash.js)
-- The first screen displayed when the app launches.
-- Checks if the user is already logged in using AsyncStorage.
-- Redirects to either the Login Screen or Listing Screen based on stored credentials.
-
-### 2️⃣ Login Screen (Login.js)
-- Allows users to log in using email & password.
-- Validates credentials with Firebase Authentication.
-- If the user enters incorrect details, an error message is shown (e.g., Invalid email or password).
-- Provides a Register button for new users to create an account.
-- If login is successful, the user is redirected to the Listing Screen.
-
-### 3️⃣ Register Screen (Register.js)
-- Allows new users to create an account using email & password.
-- Validates input fields with real-time error messages:
-  - Invalid email format
-  - Passwords do not match
-  - Weak password
-  - Email already registered
-- On successful registration, the user is redirected back to the Login Screen.
-
-### 4️⃣ Listing Screen (Listing.js)
-- Displays a list of posts, each containing:
-  - Title
-  - Image
-  - Description
-- Supports infinite scrolling, fetching more posts as the user scrolls down.
-- Implements pull-to-refresh functionality to reload the latest data.
-- Clicking on a post navigates to the Details Screen.
-- A Logout button (top left) allows users to log out and return to the Login Screen.
-
-### 5️⃣ Details Screen (DetailsScreen.js)
-- Shows the full details of the selected post (Title, Image, Description).
-- Provides a Back button (top left) to return to the Listing Screen.
-- Includes a Logout button (top right) for signing out.
-
----
-
-## 🌟 Standout Features
-
-### ✅ User Authentication with Firebase
-- Secure email-password login & registration using Firebase Authentication.
-- Displays appropriate error messages for invalid credentials.
-
-### ✅ Persistent Login
-- Uses AsyncStorage to keep users logged in until they manually log out.
-- The Splash Screen automatically checks stored credentials and redirects users accordingly.
-
-### ✅ Infinite Scrolling
-- The Listing Screen dynamically loads posts as the user scrolls down, mimicking an infinite feed.
-
-### ✅ Pull-to-Refresh
-- Users can swipe down to refresh the post list and load updated content.
-
-### ✅ Post Navigation
-- Clicking a post opens the Details Screen with full post details.
-
-### ✅ Logout Functionality
-- Users can log out from either the Listing Screen or Details Screen.
-- Redirects to the Login Screen, allowing login with a different account.

@@ -9,10 +9,9 @@ const windowWidth = Dimensions.get('window').width;
 
 const Details = ({ route, navigation }) => {
     const postData = route.params.postData;
+    console.log("postData", postData);
 
     const handleLogout = async () => {
-        // Logs the user out by clearing stored session data and navigating to the Login screen.
-        // If an error occurs while clearing data, the user is still redirected to Login.
         try {
             await AsyncStorage.clear();
             navigation.reset({
@@ -38,8 +37,8 @@ const Details = ({ route, navigation }) => {
             <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
                 <View style={styles.content}>
                     <Text style={styles.titleText}>{postData.title}</Text>
-                    <Image source={{ uri: postData.imageUrl }} style={styles.image} resizeMode="contain" />
-                    <Text style={styles.discriptionText}>{postData.body}</Text>
+                    <Image source={{ uri: postData.urlToImage }} style={styles.image} resizeMode="contain" />
+                    <Text style={styles.discriptionText}>{postData.description}</Text>
                 </View>
             </ScrollView>
         </View>
