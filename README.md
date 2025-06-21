@@ -1,5 +1,5 @@
 # 🚀 Setup Instructions
-This guide walks you through setting up the **MyKisan React Native project**, installing dependencies, and handling common issues.
+This guide walks you through setting up the **KnowNews React Native project**, installing dependencies, and handling common issues.
 
 ---
 
@@ -7,15 +7,15 @@ This guide walks you through setting up the **MyKisan React Native project**, in
 To set up the project, run the following command:
 
 ```sh
-npx @react-native-community/cli init MyKisan
+npx @react-native-community/cli init ProjectName
 ```
 
-This will initialize a new React Native project named **MyKisan**.
+This will initialize a new React Native project named **ProjectName**.
 
 Once the installation is complete, navigate into the project directory:
 
 ```sh
-cd MyKisan
+cd ProjectName
 ```
 
 Then, start the development server and launch the app on an Android device or emulator:
